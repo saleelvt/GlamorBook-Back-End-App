@@ -5,7 +5,6 @@ export const db = async () => {
   try {
     const mongoUrl = process.env.mongoURL;
     console.log("my url ", mongoUrl);
-
     if (!mongoUrl) {
       throw new Error(" Mongo_url environment variable is not dfined");
     }
