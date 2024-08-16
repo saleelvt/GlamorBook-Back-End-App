@@ -1,6 +1,6 @@
 
 import { UserEntity } from "../entities";
 
-export interface createUserUseCase{
+export interface ICreateUserUseCase{
     execute(data:UserEntity):Promise <UserEntity|null>
 }
