@@ -3,6 +3,8 @@ import { db } from "@/boot/db";
 
 (async () => {
   try {
+    
+    console.log("Initializing server and database connection...");
     server;
     await db()
       .then(() => console.log("data base connected succesfully "))

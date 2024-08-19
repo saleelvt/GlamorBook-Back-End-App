@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 // import { routes } from "@/infrastructure/routers";
-import cookieParser from "cookie-parser";
+import cookieParser from 'cookie-parser';
 
 import cors from "cors";
 dotenv.config();
@@ -39,4 +39,5 @@ app.listen(PROT, () => {
   console.log(`mongodb connected successfully on this ${PROT}`);
 });
 
+// cosnt x ="saleel data its coming "
 export default app;

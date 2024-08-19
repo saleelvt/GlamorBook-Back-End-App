@@ -1,4 +1,4 @@
-const mongose = require("mongose");
+const mongose = require("mongoose");
 import dotenv from "dotenv";
 dotenv.config();
 export const db = async () => {
