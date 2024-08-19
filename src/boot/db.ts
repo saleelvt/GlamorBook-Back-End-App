@@ -9,7 +9,7 @@ export const db = async () => {
       throw new Error(" Mongo_url environment variable is not dfined");
     }
     await mongose.connect(mongoUrl.trim());
-    console.log("data base connected successfully");
+    console.log("data base connected successfully in the boot db page ");
   } catch (error) {
     console.error("data base cnnection failed");
     console.error((error as Error).message);

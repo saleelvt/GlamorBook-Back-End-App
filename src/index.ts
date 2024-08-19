@@ -3,11 +3,10 @@ import { db } from "@/boot/db";
 
 (async () => {
   try {
-    
     console.log("Initializing server and database connection...");
     server;
     await db()
-      .then(() => console.log("data base connected succesfully "))
+      .then(() => console.log("data base connected in index page finish  "))
       .catch((error: any) => {
         console.error("error while connecting mongodb", error);
         process.exit(0);

@@ -1,9 +1,10 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 // import { routes } from "@/infrastructure/routers";
-import cookieParser from 'cookie-parser';
+import cookieParser from "cookie-parser";
 
 import cors from "cors";
+import { dependencies } from "@/boot/dependencies";
 dotenv.config();
 
 const app: Application = express();
@@ -24,10 +25,12 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// app.use('/',routes(dependencies))
+
 // app.use("/",routes(dependencies))
-app.get("/", (req, res) => {
-  res.send("saleel is a good boy ");
-});
+// app.get("/", (req, res) => {
+//   res.send("saleel is a good boy ");
+// });
 
 app.use("*", (req: Request, res: Response) => {
   res
