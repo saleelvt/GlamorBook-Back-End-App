@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
-// import { routes } from "@/infrastructure/routers";
+import { routes } from "@/infrastructure/routers";
 import cookieParser from "cookie-parser";
 
 import cors from "cors";
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const allowedOrigin = [process.env.CLIENT_URL!];
+const allowedOrigin = process.env.CLIENT_URL
 const clientId = process.env.CLIENT_URL;
 console.log(`Client URL: ${clientId}`);
 
@@ -25,12 +25,10 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// app.use('/',routes(dependencies))
+app.use("/",routes(dependencies))
 
-// app.use("/",routes(dependencies))
-// app.get("/", (req, res) => {
-//   res.send("saleel is a good boy ");
-// });
+
+
 
 app.use("*", (req: Request, res: Response) => {
   res
@@ -42,5 +40,4 @@ app.listen(PROT, () => {
   console.log(`mongodb connected successfully on this ${PROT}`);
 });
 
-// cosnt x ="saleel data its coming "
 export default app;
