@@ -1,6 +1,5 @@
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
 
-
 import { Request, Response, NextFunction } from "express";
 
 export const signupController = (dependencies: IDependencies) => {
@@ -8,12 +7,8 @@ export const signupController = (dependencies: IDependencies) => {
     useCases: { checkUserEmailUseCase },
   } = dependencies;
 
-
-
-
-
   return async (req: Request, res: Response, next: NextFunction) => {
-    console.log('my req,body 1',req.body);
+    console.log("my req,body 1", req.body);
 
     const userCredentials = req.body;
 
@@ -24,15 +19,13 @@ export const signupController = (dependencies: IDependencies) => {
       });
     }
 
-
     try {
-
-      const userExist=await checkUserEmailUseCase(dependencies).execute(userCredentials.email)
-      if(userExist) return res.status(409).send({error:"E-mail already signed "})
-
-      
-    } catch (error) {
-      
-    }
+      const userExist = await checkUserEmailUseCase(dependencies).execute(
+        userCredentials.email
+      );
+      if (userExist)
+        return res.status(409).send({ error: "E-mail already signed " });
+    } catch (error) {}
   };
 };
+
