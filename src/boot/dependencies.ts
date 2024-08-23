@@ -8,4 +8,5 @@ import * as useCases from "@/application/user/useCases"
 export const dependencies : IDependencies={
     repositories,
     useCases
-}
+}   
+

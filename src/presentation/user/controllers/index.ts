@@ -4,12 +4,6 @@ import { IDependencies } from "@/application/user/interfaces/IDependencies";
 
 import { signupController } from "./signup";
 
-
-
-
-
-
-
 export const controllers=(dependencies:IDependencies)=>{
 
     return{

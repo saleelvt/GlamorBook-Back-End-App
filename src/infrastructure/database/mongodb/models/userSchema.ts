@@ -25,12 +25,6 @@ const userSchema = new Schema(
       type: String,
       default: "Active",
     },
-    chatHistory: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Chat",
-      },
-    ],
   },
   {
     timestamps: true,

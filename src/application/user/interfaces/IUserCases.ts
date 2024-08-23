@@ -11,6 +11,6 @@ import { IDependencies } from "./IDependencies";
 export interface IUseCases {
   createUserUseCase: (dependencies: IDependencies) => ICreateUserUseCase;
   checkUserEmailUseCase: (dependencies: IDependencies) => ICheckUserEmailUseCase;
-  verifyOtpUseCase:(dependencies:IDependencies)=>IVerifyOtpUseCase
+  verifyOtpUseCase:(dependencies:IDependencies)=>IVerifyOtpUseCase;
 }
 
