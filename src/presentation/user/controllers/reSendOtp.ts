@@ -1,21 +1,19 @@
 
+
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
-import { generateOtp } from "@/utilities/otp/genarateOtp";
 import { Otp } from "@/infrastructure/database/mongodb/models/otpShema";
+import { generateOtp } from "@/utilities/otp/genarateOtp";
 import { sendOtp } from "@/utilities/otp/sendOtp";
 import { Request, Response, NextFunction } from "express";
 
-
-export const signupController = (dependencies: IDependencies) => {
+export const resendOtpController = (dependencies: IDependencies) => {
   const {
     useCases: { checkUserEmailUseCase },
   } = dependencies;
 
   return async (req: Request, res: Response, next: NextFunction) => {
-    console.log("my req,body 1", req.body);
-
     const userCredentials = req.body;
-
+    console.log("userdata in controller", userCredentials);
     if (!userCredentials || !userCredentials.email) {
       return res.status(400).json({
         success: false,
@@ -24,40 +22,39 @@ export const signupController = (dependencies: IDependencies) => {
     }
 
     try {
-      console.log("checking the email");
-
       const userExist = await checkUserEmailUseCase(dependencies).execute(
         userCredentials.email
       );
+      // Checking if user already exists
       if (userExist) {
-        console.log("email have ");
-        return res.status(409).send({ error: "E-mail already signed " });
+        return res.status(409).send({ error: "E-mail already in use" });
       }
 
+      // Generate OTP
       const otp = generateOtp();
-      console.log(otp, "this is genarated otp ");
+      console.log(otp, "Generated OTP");
 
       // Check if OTP entry already exists
       const emailExist = await Otp.findOne({ email: userCredentials.email });
       let dbOtp;
+
       if (emailExist) {
-        console.log('otp unde');
-        
-        dbOtp = await Otp.findByIdAndUpdate(
-          { email: userCredentials.email, otp },
+        dbOtp = await Otp.findOneAndUpdate(
+          { email: userCredentials.email },
           { $set: { otp, createdAt: new Date() } }
         );
       } else {
         dbOtp = await Otp.create({ email: userCredentials.email, otp });
       }
+
+      // Send OTP to email
       if (dbOtp) {
         await sendOtp(userCredentials.email, otp);
       }
-      delete userCredentials.confirmPassword; // exclude confirmPassword
+
       res.status(200).json({
         success: true,
-        message: "An OTP has been sent to your email ",
-        ...userCredentials, // sending usercredentials without confirmPassword directily
+        message: "An OTP has been sent to your email.",
       });
     } catch (error) {
       console.error(error, "<< Something went wrong in user signup >>");

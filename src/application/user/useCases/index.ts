@@ -1,3 +1,5 @@
 export * from "./createUserUseCase"
 export * from "./checkUserEmailUseCase"
 export * from "./verifyOtpUseCase"
+export * from "./findUserByEmailUseCase"
+export * from "./loginUserUseCase"

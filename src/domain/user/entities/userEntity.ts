@@ -5,7 +5,7 @@ export interface UserEntity {
   userName?: string;
   email: string;
   password: string;
-  role?: "user";
+  role?: "user" | "admin" | "salon";
   otp?: string;
   status?: string;
   createdAt?: Date;

@@ -9,6 +9,7 @@ export const createUserUseCase = (dependencies: IDependencies) => {
   return {
     execute: async (data: UserEntity) => {
       try {
+        data.role=data.role|| "user"
         return await create(data);
       } catch (error: any) {
         throw new Error(error.message || "user creation failed");

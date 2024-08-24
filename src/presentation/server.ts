@@ -26,6 +26,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use("/",routes(dependencies))
+app.use("/salon",routes(dependencies))
+app.use("/admin",routes(dependencies))
 
 
 
