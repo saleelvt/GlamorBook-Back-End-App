@@ -1,5 +1,5 @@
-import server from "@/presentation/server";
-import { db } from "@/boot/db";
+import server from "./presentation/server";
+import { db } from "./boot/db";
 
 (async () => {
   try {

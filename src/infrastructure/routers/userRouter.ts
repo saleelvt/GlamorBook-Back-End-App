@@ -1,5 +1,5 @@
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
-import { dependencies } from "@/boot/dependencies";
+
 import { controllers } from "@/presentation/user/controllers";
 import { Router } from "express";
 

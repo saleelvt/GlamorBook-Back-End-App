@@ -1,10 +1,13 @@
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
-import { dependencies } from "@/boot/dependencies";
+
 import { generateAccessToken } from "@/utilities/jwt/generateAccessToken";
+import { generateRefreshToken } from "@/utilities/jwt/generateRefreshToken";
 import { NextFunction, Request, Response } from "express";
 
 export const loginUserController = (dependencies: IDependencies) => {
-  const {useCases:{loginUserUseCase}}=dependencies
+  const {
+    useCases: { loginUserUseCase },
+  } = dependencies;
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -43,8 +46,18 @@ export const loginUserController = (dependencies: IDependencies) => {
         email: userEmail,
         role: userRole,
       });
+
+      const accessRefreshedToken = generateRefreshToken({
+        _id: userId,
+        email: userEmail,
+        role: userRole,
+      });
       // Set cookies with tokens
       res.cookie("access_token", accessToken, {
+        httpOnly: true,
+      });
+
+      res.cookie("refresh_token", accessRefreshedToken, {
         httpOnly: true,
       });
       return res.status(200).json({
@@ -52,7 +65,6 @@ export const loginUserController = (dependencies: IDependencies) => {
         data: user,
       });
     } catch (error: any) {
-      
       console.error("Login error:", error); // Log error for debugging
       return res
         .status(500)

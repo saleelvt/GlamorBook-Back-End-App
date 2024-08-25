@@ -1,11 +1,12 @@
-import { createUserUseCase } from "./../../../application/user/useCases/createUserUseCase";
-import { verifyOtpUseCase } from "./../../../application/user/useCases/verifyOtpUseCase";
+import { generateRefreshToken } from "@/utilities/jwt/generateRefreshToken";
+
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
 import { Otp } from "@/infrastructure/database/mongodb/models/otpShema";
 import { hashPassword } from "@/utilities/bcrypt";
+import { Request,Response,NextFunction } from "express";
 
 import { generateAccessToken } from "@/utilities/jwt/generateAccessToken";
-import { NextFunction, Request, Response } from "express";
+
 
 export const verifyOtpController = (dependencies: IDependencies) => {
   const {
@@ -46,10 +47,18 @@ export const verifyOtpController = (dependencies: IDependencies) => {
           email: user.email!,
           role: user.role!,
         });
+        const refreshToken = generateRefreshToken({
+          _id: String(user._id),
+          email: user.email!,
+          role: user.role!,
+        });
 
         res.cookie("access_token", accessToken, {
           httpOnly: true,
         });
+        res.cookie("refresh_token", refreshToken, {
+          httpOnly: true,
+        })
         res.status(200).json({
           success: true,
           message: "OTP verified and user created successfully",

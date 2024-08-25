@@ -7,6 +7,7 @@ import cors from "cors";
 import { dependencies } from "@/boot/dependencies";
 dotenv.config();
 
+
 const app: Application = express();
 const PROT: number = Number(process.env.PORT) || 4001;
 
@@ -23,6 +24,7 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 app.use("/",routes(dependencies))

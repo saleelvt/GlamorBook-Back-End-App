@@ -1,5 +1,5 @@
     import { IDependencies } from "../interfaces/IDependencies";
-    import { UserEntity } from "@/domain/user/entities";
+
 
     export const checkUserEmailUseCase = (dependencies: IDependencies) => {
     const {
