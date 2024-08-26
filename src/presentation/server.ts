@@ -1,3 +1,4 @@
+import { adminRoutes } from './../infrastructure/routers';
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 import { routes } from "@/infrastructure/routers";
@@ -5,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import cors from "cors";
 import { dependencies } from "@/boot/dependencies";
+import { adminDependencies } from '@/boot/adminDependencies';
 dotenv.config();
 
 
@@ -28,8 +30,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use("/",routes(dependencies))
-app.use("/salon",routes(dependencies))
-app.use("/admin",routes(dependencies))
+// app.use("/salon",routes(dependencies))
+app.use("/admin",adminRoutes(adminDependencies))
 
 
 
