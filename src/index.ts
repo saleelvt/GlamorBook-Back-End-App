@@ -1,5 +1,28 @@
 import server from "./presentation/server";
 import { db } from "./boot/db";
+import { Admin } from "./infrastructure/database/mongodb/models/adminShema";
+
+ export const insertAdmin = async () => {
+
+  const sampleAdmin = {
+    userName: "saleelAdmin",
+    email: "admin12@gmail.com",
+    password: "admin@12",
+  };
+
+  try {
+    const existingAdmin = await Admin.findOne({ email: sampleAdmin.email });
+    if (!existingAdmin) {
+      const newAdmin = new Admin(sampleAdmin);
+      await newAdmin.save();
+      console.log("this is the admin now ", newAdmin);
+    } else {
+      console.log(" ADMIN ALLREDY EXISTED  ");
+    }
+  }  catch (error) {
+    console.error("Failed to insert sample admin:", error);
+  }
+};
 
 (async () => {
   try {
@@ -20,3 +43,5 @@ import { db } from "./boot/db";
     });
   }
 })();
+
+// insertAdmin()

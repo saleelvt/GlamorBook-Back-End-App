@@ -33,7 +33,7 @@ export const loginUserController = (dependencies: IDependencies) => {
       const userId = user._id?.toString();
       const userEmail = user.email;
       const userRole = user.role;
-
+      
       if (!userId || !userEmail || !userRole) {
         return res
           .status(500)
@@ -60,6 +60,8 @@ export const loginUserController = (dependencies: IDependencies) => {
       res.cookie("refresh_token", accessRefreshedToken, {
         httpOnly: true,
       });
+      console.log('console of the  user details ',user);
+      
       return res.status(200).json({
         message: "Login successful",
         data: user,

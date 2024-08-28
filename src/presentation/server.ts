@@ -35,13 +35,11 @@ app.use("/admin",adminRoutes(adminDependencies))
 
 
 
-
 app.use("*", (req: Request, res: Response) => {
   res
     .status(404)
     .json({ success: false, status: 404, message: "Api Not Found " });
 });
-
 app.listen(PROT, () => {
   console.log(`mongodb connected successfully on this ${PROT}`);
 });
