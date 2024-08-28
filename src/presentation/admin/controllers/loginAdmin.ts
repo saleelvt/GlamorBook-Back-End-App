@@ -60,6 +60,7 @@ export const loginAdminController = (dependencies: IAdminDependencies) => {
         role: adminRole,
       });
 
+      
       // Set cookies with tokens
       res.cookie("access_token", accessToken, {
         httpOnly: true,

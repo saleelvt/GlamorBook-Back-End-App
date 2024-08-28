@@ -1,4 +1,4 @@
-import { createUserUseCase } from "./../../../application/user/useCases/createUserUseCase";
+
 
 import { Request, Response, NextFunction } from "express";
 import { OAuth2Client } from "google-auth-library";
@@ -6,6 +6,7 @@ import { IDependencies } from "@/application/user/interfaces/IDependencies";
 import { UserEntity } from "@/domain/user/entities";
 import { generateAccessToken } from "@/utilities/jwt/generateAccessToken";
 import { generateRandomString } from "@/utilities/generateRandomString";
+import { generateRefreshToken } from "@/utilities/jwt/generateRefreshToken";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -71,8 +72,19 @@ export const googleAuthController = (dependencies: IDependencies) => {
         _id: String(result?._id),
         email: result?.email!,
         role: result?.role!,
+      })
+
+      const refreshToken = generateRefreshToken({
+        _id: String(result?._id),
+        email: result?.email!,
+        role: result?.role!,
       });
+ 
       res.cookie("access_token", accessToken, {
+        httpOnly: true,
+      });
+
+      res.cookie("refresh_token", refreshToken, {
         httpOnly: true,
       });
 

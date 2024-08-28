@@ -7,6 +7,7 @@ import { verifyOtpController } from "./verifyOtp";
 import {googleAuthController} from "./googleAuth"
 import { loginUserController } from "./loginUser";
 import {resendOtpController} from "./reSendOtp"
+import { logoutController } from "./logoutUser";
 
 
 export const controllers=(dependencies:IDependencies)=>{
@@ -16,7 +17,8 @@ export const controllers=(dependencies:IDependencies)=>{
         verifyOtp:verifyOtpController(dependencies),
         googleAuth:googleAuthController(dependencies),
         loginUser:loginUserController(dependencies),
-        reSendOtp:resendOtpController(dependencies)
+        reSendOtp:resendOtpController(dependencies),
+        logoutUser:logoutController(dependencies)
     }
 
 }
