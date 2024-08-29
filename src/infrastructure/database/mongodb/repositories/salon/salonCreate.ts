@@ -1,9 +1,7 @@
 import { SalonEntity } from "@/domain/salon/entities";
 import { Salon } from "../../models/salonSchema";
 
-export const salonCreate = async (
-  data: SalonEntity
-): Promise<SalonEntity | null> => {
+export const salonCreate = async (data: SalonEntity): Promise<SalonEntity | null> => {
   try {
     console.log("Data inside the salon repository create:", data);
     const newSalon = await Salon.create(data);

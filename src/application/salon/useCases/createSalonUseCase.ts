@@ -4,9 +4,7 @@ import { SalonEntity } from "@/domain/salon/entities";
 import { ISalonDependencies } from "../interfaces/ISalonDependencies";
 
 export const createSalonUseCase = (dependencies: ISalonDependencies) => {
-  const {
-    repositories: { salonCreate },
-  } = dependencies;
+const {repositories:{salonCreate}}=dependencies
   return {
     execute: async (data: SalonEntity) => {
       try {
