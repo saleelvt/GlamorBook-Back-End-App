@@ -1,4 +1,4 @@
-import { Admin } from "./../../models/adminShema";
+import { Admin } from "../../models/adminSchema";
 
 import { AdminEntity } from "@/domain/admin/entities/adminEntity";
 

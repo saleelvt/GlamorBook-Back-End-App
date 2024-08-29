@@ -1,7 +1,7 @@
 
 
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
-import { Otp } from "@/infrastructure/database/mongodb/models/otpShema";
+import { Otp } from "@/infrastructure/database/mongodb/models/otpSchema";
 import { generateOtp } from "@/utilities/otp/genarateOtp";
 import { sendOtp } from "@/utilities/otp/sendOtp";
 import { Request, Response, NextFunction } from "express";

@@ -1,6 +1,6 @@
 import server from "./presentation/server";
 import { db } from "./boot/db";
-import { Admin } from "./infrastructure/database/mongodb/models/adminShema";
+import { Admin } from "./infrastructure/database/mongodb/models/adminSchema";
 
  export const insertAdmin = async () => {
 

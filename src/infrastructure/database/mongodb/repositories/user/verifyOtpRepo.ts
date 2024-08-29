@@ -1,4 +1,4 @@
-import { Otp } from "../../models/otpShema";
+import { Otp } from "../../models/otpSchema";
 
 export const verifyOtpRepo = async (email: string, otp: string[]) => {
   try {

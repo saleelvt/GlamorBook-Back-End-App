@@ -1,7 +1,7 @@
 import { generateRefreshToken } from "@/utilities/jwt/generateRefreshToken";
 
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
-import { Otp } from "@/infrastructure/database/mongodb/models/otpShema";
+import { Otp } from "@/infrastructure/database/mongodb/models/otpSchema";
 import { hashPassword } from "@/utilities/bcrypt";
 import { Request,Response,NextFunction } from "express";
 
