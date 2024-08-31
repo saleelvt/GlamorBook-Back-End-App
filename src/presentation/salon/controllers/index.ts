@@ -5,10 +5,12 @@ import { ISalonDependencies } from "@/application/salon/interfaces/ISalonDepende
 
 import { salonSignupController } from "./salonSignup";
 import { salonVerifyOtpController } from './salonVerifyOtp';
+import { salonLoginController } from "./salonLogin";
 
 export const salonControllers = (dependencies: ISalonDependencies) => {
   return {
     salonSignup: salonSignupController(dependencies),
-    salonVerifyOtp:salonVerifyOtpController(dependencies)
+    salonVerifyOtp:salonVerifyOtpController(dependencies),
+    salonLogin:salonLoginController(dependencies)
   };
 };
