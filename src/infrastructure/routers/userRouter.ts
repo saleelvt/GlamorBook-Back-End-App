@@ -4,8 +4,7 @@ import { controllers } from "@/presentation/user/controllers";
 import { Router } from "express";
 
 export const routes = (dependencies: IDependencies) => {
-  const { signup, verifyOtp, googleAuth, loginUser, reSendOtp, logoutUser } =
-    controllers(dependencies);
+  const { signup, verifyOtp, googleAuth, loginUser, reSendOtp, logoutUser,forgotPassword,resetPassword } =controllers(dependencies);
   const router = Router();
 
   router.route("/signup").post(signup);
@@ -14,6 +13,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/login").post(loginUser);
   router.route("/resend-otp").post(reSendOtp);
   router.route("/logout").delete(logoutUser);
+  router.route("/forgetPassword").post(forgotPassword)
+  router.route('/userResetPassword').post(resetPassword)
 
   return router;
 };

@@ -14,7 +14,7 @@ export const findByEmail=async (email:string):Promise<UserEntity|null>=>{
         return esistingUser;
 
     } catch (error:any) {
-
+        
         throw new Error(error?.message);
     }
 

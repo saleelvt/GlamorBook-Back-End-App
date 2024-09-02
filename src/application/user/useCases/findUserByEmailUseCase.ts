@@ -1,5 +1,5 @@
 import { IDependencies } from "../interfaces/IDependencies";
-import { dependencies } from "@/boot/dependencies";
+
 
 export const findUserByEmailUseCase = (dependencies: IDependencies) => {
   const {
