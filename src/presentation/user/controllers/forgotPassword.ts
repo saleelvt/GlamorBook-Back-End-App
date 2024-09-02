@@ -29,6 +29,7 @@ export const forgotPasswordController = (dependencies: IDependencies) => {
 
       console.log("mail successuy sended for the forgot user ");
       return res.status(200).json({ message: "Password reset email sent" });
+      
     } catch (error: any) {
       next(error);
     }

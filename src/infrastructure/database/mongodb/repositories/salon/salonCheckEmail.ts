@@ -1,6 +1,6 @@
 import { Salon } from "../../models/salonSchema";
 
-export const salonCheckEmail = async (email: string): Promise<boolean> =>{
+export const salonCheckEmail = async (email: string) =>{
   try {
     const SalonExist = await Salon.findOne({ email });
     return SalonExist ? true : false;
