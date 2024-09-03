@@ -1,4 +1,5 @@
 import { IDependencies } from "@/application/user/interfaces/IDependencies";
+import { jwtMiddleware } from "@/utilities/middlewares/verifyToken";
 
 import { controllers } from "@/presentation/user/controllers";
 import { Router } from "express";
@@ -16,5 +17,6 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/forgetPassword").post(forgotPassword)
   router.route('/userResetPassword').post(resetPassword)
 
+  
   return router;
 };

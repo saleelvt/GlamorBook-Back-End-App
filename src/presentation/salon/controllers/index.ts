@@ -8,6 +8,7 @@ import { salonVerifyOtpController } from './salonVerifyOtp';
 import { salonLoginController } from "./salonLogin";
 import { salonForgotPasswordController } from "./salonForgotPassword";
 import { salonResetPasswordController } from "./salonResetPassword";
+import { salonLogoutController } from "./salonLogout";
 
 export const salonControllers = (dependencies: ISalonDependencies) => {
   return {
@@ -15,7 +16,7 @@ export const salonControllers = (dependencies: ISalonDependencies) => {
     salonVerifyOtp:salonVerifyOtpController(dependencies),
     salonLogin:salonLoginController(dependencies),
     salonForgotPassword:salonForgotPasswordController(dependencies),
-    salonResetPassword:salonResetPasswordController(dependencies)
-
+    salonResetPassword:salonResetPasswordController(dependencies),
+    salonLogout:salonLogoutController(dependencies)
   };
 };

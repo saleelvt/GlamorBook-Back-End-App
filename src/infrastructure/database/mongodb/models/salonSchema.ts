@@ -58,4 +58,6 @@ const salonSchema = new Schema(
   }
 );
 
+
+
 export const Salon = model<SalonEntity>("Salon", salonSchema);
