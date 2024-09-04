@@ -47,6 +47,7 @@ export const loginUserController = (dependencies: IDependencies) => {
         role: userRole,
       });
 
+      
       const accessRefreshedToken = generateRefreshToken({
         _id: userId,
         email: userEmail,
@@ -56,6 +57,7 @@ export const loginUserController = (dependencies: IDependencies) => {
       res.cookie("access_token", accessToken, {
         httpOnly: true,
       });
+
 
       res.cookie("refresh_token", accessRefreshedToken, {
         httpOnly: true,

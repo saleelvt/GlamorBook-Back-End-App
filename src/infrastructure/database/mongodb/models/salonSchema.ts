@@ -2,7 +2,7 @@ import { SalonEntity } from "@/domain/salon/entities";
 import { Schema, model, Types } from "mongoose";
 
 const salonSchema = new Schema(
-  {
+  { 
     userName: {
       type: String,
       required: true,

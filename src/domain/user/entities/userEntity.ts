@@ -12,3 +12,5 @@ export interface UserEntity {
   updatedAt?: Date;
   city?: string;
 }
+
+

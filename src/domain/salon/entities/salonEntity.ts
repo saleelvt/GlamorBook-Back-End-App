@@ -10,7 +10,6 @@ export interface SalonEntity {
   address?: string | null;
   city?: string | null;
   state?: string | null;
-  zipCode?: string | null;
   phone?: string | null;
   otp?: string[];
   profilePicture?: string | null;
@@ -23,3 +22,5 @@ export interface SalonEntity {
   latitude?: number | null; // Add latitude
   longitude?: number | null; // Add longitude
 }
+
+
