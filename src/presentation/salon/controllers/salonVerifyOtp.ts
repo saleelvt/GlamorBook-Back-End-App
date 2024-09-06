@@ -13,14 +13,44 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { otp, email, userName, password } = req.body;
+      const {
+        otp,
+        email,
+        userName,
+        password,
+        role,
+        status,
+        city,
+        images,
+        latitude,
+        longitude,
+        licenseDocument,
+        phone,
+        profilePicture,
+        seat,
+        salonName,
+        state,
+      } = req.body;
 
       console.log(
         "my dataa of verify otp controller  ",
         otp,
         email,
+        password,
+        role,
+        status,
         userName,
-        password
+
+        city,
+        images,
+        latitude,
+        longitude,
+        licenseDocument,
+        phone,
+        profilePicture,
+        seat,
+        salonName,
+        state
       );
 
       const isOtpVerified = await verifySalonOtpUseCase(dependencies).execute(
@@ -39,6 +69,16 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
           password: hashedPassword,
           role: "salon",
           status: "active",
+          city,
+          images,
+          latitude,
+          longitude,
+          licenseDocument,
+          phone,
+          profilePicture,
+          seat,
+          salonName,
+          state,
         });
 
         if (!Mysalon) throw new Error("Salon creation failed");

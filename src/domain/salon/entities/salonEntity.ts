@@ -13,7 +13,8 @@ export interface SalonEntity {
   phone?: string | null;
   otp?: string[];
   profilePicture?: string | null;
-  images?: string[] | null;
+  licenseDocument?: string;
+  images?: { url: string; alt?: string }[] | null; // Structured array for images
   role?: "salon";
   status?: string | null;
   seat?: object[];

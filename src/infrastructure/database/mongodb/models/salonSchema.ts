@@ -30,19 +30,17 @@ const salonSchema = new Schema(
       type: String,
       default: "",
     },
-    salonName: {
-      type: String,
+    licenseDocument:{
+      type:String,
+      default:''
     },
-    address: {
+    salonName: {
       type: String,
     },
     city: {
       type: String,
     },
     state: {
-      type: String,
-    },
-    zipCode: {
       type: String,
     },
     phone: {
