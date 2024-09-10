@@ -32,6 +32,7 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
         state,
       } = req.body;
 
+
       console.log(
         "my dataa of verify otp controller  ",
         otp,
@@ -40,7 +41,6 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
         role,
         status,
         userName,
-
         city,
         images,
         latitude,
@@ -58,11 +58,13 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
         otp
       );
 
+
+
+
       if (isOtpVerified) {
         const hashedPassword = await hashPassword(password);
 
         // create the salon
-
         const Mysalon = await createSalonUseCase(dependencies).execute({
           email,
           userName,
@@ -81,6 +83,11 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
           state,
         });
 
+
+
+        
+
+
         if (!Mysalon) throw new Error("Salon creation failed");
         await Otp.deleteOne({ email });
         const accessToken = generateAccessToken({
@@ -93,6 +100,7 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
           email: Mysalon.email!,
           role: Mysalon.role!,
         });
+
 
         res.cookie("access_token", accessToken, {
           httpOnly: true,
