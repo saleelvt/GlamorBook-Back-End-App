@@ -70,7 +70,7 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
           userName,
           password: hashedPassword,
           role: "salon",
-          status: "active",
+          status: "pending",
           city,
           images,
           latitude,
@@ -127,3 +127,6 @@ export const salonVerifyOtpController = (dependencies: ISalonDependencies) => {
     }
   };
 };
+
+
+
