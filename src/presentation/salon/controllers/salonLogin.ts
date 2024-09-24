@@ -34,7 +34,7 @@ export const salonLoginController = (dependencies: ISalonDependencies) => {
 
 
 
-      if (salon?.status !== "active") {
+      if (salon?.status !== "pending") {
         return res.status(403).json({ message: "You are not approved yet" });
       }
       if (!salon) {
