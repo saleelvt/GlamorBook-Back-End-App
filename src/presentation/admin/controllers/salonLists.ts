@@ -9,6 +9,7 @@ export const getAllSalonsListAdminController = (
     useCases: { getAllSalonsListAdminUseCase },
   } = dependencies;
 
+  
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const AllSalons = await getAllSalonsListAdminUseCase(

@@ -2,7 +2,7 @@ import { IAdminDependencies } from "@/application/admin/interfaces/IAdminDepende
 import { adminControllers } from "@/presentation/admin/controllers";
 import { Router } from "express";
 export const adminRoutes = (dependencies: IAdminDependencies) => {
-  const { loginAdmin, logoutAdmin ,getAllSalonsListAdmin, } = adminControllers(dependencies);
+  const { loginAdmin, logoutAdmin ,getAllSalonsListAdmin,getSalonDetails } = adminControllers(dependencies);
 
   const router = Router();
 
@@ -13,6 +13,7 @@ export const adminRoutes = (dependencies: IAdminDependencies) => {
 
   // get lists 
   router.route('/getSalons').get(getAllSalonsListAdmin)
+  router.route('/getSalonDetails/:salonId').get(getSalonDetails)
 
 
   // patchs 

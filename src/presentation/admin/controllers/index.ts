@@ -2,6 +2,7 @@ import { IAdminDependencies } from "@/application/admin/interfaces/IAdminDepende
 import { loginAdminController } from "./loginAdmin";
 import { adminLogutController } from "./adminLogout";
 import { getAllSalonsListAdminController } from "./salonLists";
+import { getSalonDetailsController } from "./salonDetails";
 
 
 export const adminControllers=(dependencies:IAdminDependencies)=>{
@@ -10,6 +11,7 @@ export const adminControllers=(dependencies:IAdminDependencies)=>{
         loginAdmin:loginAdminController(dependencies),
         logoutAdmin:adminLogutController(dependencies),
         getAllSalonsListAdmin:getAllSalonsListAdminController(dependencies),
+        getSalonDetails:getSalonDetailsController(dependencies)
      
 
         
