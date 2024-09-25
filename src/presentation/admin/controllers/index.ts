@@ -10,6 +10,7 @@ export const adminControllers=(dependencies:IAdminDependencies)=>{
         loginAdmin:loginAdminController(dependencies),
         logoutAdmin:adminLogutController(dependencies),
         getAllSalonsListAdmin:getAllSalonsListAdminController(dependencies),
+     
 
         
     }
