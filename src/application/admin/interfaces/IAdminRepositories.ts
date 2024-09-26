@@ -4,4 +4,5 @@ export interface IAdminRepositories{
     adminFindByEmail:(email:string)=> Promise<AdminEntity|null>
     getAllSalons:()=> Promise<boolean|SalonEntity[]>
     getSalonById:(salonId:string)=> Promise<SalonEntity|null>
+    updateSalonStatus:(salonId:string,status:string)=> Promise<SalonEntity | null>
 }

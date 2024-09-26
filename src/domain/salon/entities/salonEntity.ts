@@ -11,6 +11,7 @@ export interface SalonEntity {
   city?: string | null;
   state?: string | null;
   phone?: string | null;
+  comments?:string| null;
   otp?: string[];
   profilePicture?: string | null;
   licenseDocument?: string;
