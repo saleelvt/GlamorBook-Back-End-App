@@ -5,4 +5,5 @@ export interface IAdminRepositories{
     getAllSalons:()=> Promise<boolean|SalonEntity[]>
     getSalonById:(salonId:string)=> Promise<SalonEntity|null>
     updateSalonStatus:(salonId:string,status:string)=> Promise<SalonEntity | null>
+    deleteSalonById:(salonId:string)=> Promise <SalonEntity | null>
 }

@@ -16,6 +16,8 @@ export const adminAcceptSalonController = (
       const { salonId } = req.params;
       console.log("my salon id got for the accept ", salonId);
       const { status, comments } = req.body;
+       console.log('this data for rejection ', status, "and may comment ", comments );
+       
       const updatedSalon = await acceptSalonUseCase(dependencies).execute(
         salonId,
         status
@@ -36,18 +38,17 @@ export const adminAcceptSalonController = (
           console.warn("Acceptance email could not be sent");
         }
       }
+
       if (status == "rejected") {
         const emailSend = await sendRejectionEmail(
           updatedSalon?.email ?? "",
           updatedSalon?.userName ?? "",
           updatedSalon?.comments ?? ""
         );
-
         if (!emailSend) {
           console.warn("Rejection email could not be sent");
         }
       }
-
       return res.status(200).json({ success: true, data: updatedSalon });
     } catch (error: any) {
       console.error("Failed to handle accept/reject theater:", error);
