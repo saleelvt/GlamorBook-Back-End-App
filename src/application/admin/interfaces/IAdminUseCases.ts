@@ -1,3 +1,4 @@
+
 import { dependencies } from './../../../boot/dependencies';
 
 import { IAdminDependencies } from "./IAdminDependencies";
@@ -5,6 +6,7 @@ import { IAcceptSalonUseCase, ILoginAdminUseCase } from "@/domain/admin/useCases
 import { IGetSalonDetailsUseCase } from '@/domain/admin/useCases/IGetSalonDetailsUseCase';
 import { IGetAllSalonsAdminUseCases } from "@/domain/admin/useCases";
 import { IAdminDeleteSalon } from "@/domain/admin/useCases";
+import { IAdminHandleBlockUnblockUseCase } from '@/domain/admin/useCases';
 
 
 export interface IAdminUseCases {
@@ -13,5 +15,6 @@ export interface IAdminUseCases {
   getSalonDetailsUseCase:(dependencies:IAdminDependencies)=> IGetSalonDetailsUseCase;
   acceptSalonUseCase:(dependencies:IAdminDependencies)=>IAcceptSalonUseCase
   adminDeleteSalonUseCase:(dependencies:IAdminDependencies)=> IAdminDeleteSalon
+  adminHandleBlockUnblock:(dependencies:IAdminDependencies)=> IAdminHandleBlockUnblockUseCase
   
 }
