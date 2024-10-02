@@ -6,6 +6,7 @@ export const salonFindByEmail = async (
 ): Promise<SalonEntity | null> => {
   try {
     const checkSalonEmail = await Salon.findOne({ email: email });
+    
     console.log("🚀 ~ Email in database:", checkSalonEmail);
     return checkSalonEmail;
   } catch (error: any) {
