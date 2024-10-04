@@ -34,13 +34,21 @@ export const salonLoginController = (dependencies: ISalonDependencies) => {
 
 
 
-      if (salon?.status !== "pending") {
+      if (salon?.status === "pending") {
         return res.status(403).json({ message: "You are not approved yet" });
+      }
+      if (salon?.status === "rejected") {
+        return res.status(403).json({ message: "You are Rejected from GlamorBook" });
+      }
+
+      if (salon?.status === "blocked") {
+        return res.status(403).json({ message: "You Are blocked from GlamorBook " });
       }
       if (!salon) {
         return res.status(401).json({ message: "Invalid credentials" });
       }
 
+      
       // add the id email role existing and pass tot cookie and frond ed
 
       const salonId = salon._id?.toString();

@@ -1,5 +1,6 @@
 
 
+
 import { UserEntity } from "@/domain/user/entities";
 
 export interface IRepositories {
@@ -8,4 +9,5 @@ export interface IRepositories {
   verifyOtpRepo:(email:string,otp:string[])=> Promise<boolean>;
   findByEmail:(email:string)=> Promise<UserEntity|null>
   updateUserPassword:(data:{email:string,password:string})=> Promise <UserEntity|null>
+  checkStatusById:(userId:string,role:string)=> Promise <string|null|undefined>
 }

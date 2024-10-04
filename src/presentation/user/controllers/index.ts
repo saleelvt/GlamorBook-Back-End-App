@@ -8,6 +8,7 @@ import { resendOtpController } from "./reSendOtp";
 import { logoutController } from "./logoutUser";
 import { forgotPasswordController } from "./forgotPassword";
 import { resetPasswordController } from "./resetPassword";
+import {getEveryUsersStatusController} from"./getEveryUsersStatus"
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -18,6 +19,7 @@ export const controllers = (dependencies: IDependencies) => {
     reSendOtp: resendOtpController(dependencies),
     logoutUser: logoutController(dependencies),
     forgotPassword: forgotPasswordController(dependencies),
-    resetPassword: resetPasswordController(dependencies)
+    resetPassword: resetPasswordController(dependencies),
+    getEveryUsersStatus:getEveryUsersStatusController(dependencies)
   };
 };
