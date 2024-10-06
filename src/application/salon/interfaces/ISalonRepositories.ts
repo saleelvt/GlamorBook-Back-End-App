@@ -7,4 +7,5 @@ export interface ISalonRepositories {
    salonVerifyOtpRepo:(email:string,otp:string[])=> Promise<boolean>
    salonFindByEmail:(email:string)=>Promise<SalonEntity|null>
    updateSalonPassword:(data:{email:string,password:string})=>Promise<SalonEntity|null>
+   salonProfileById :(id:string) => Promise <SalonEntity|null> 
 }

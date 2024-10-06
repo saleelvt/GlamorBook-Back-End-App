@@ -5,6 +5,7 @@ import { ISalonFinbyEmailUsecases } from '@/domain/salon/useCases/ISalonFindByEm
 import { ISalonDependencies } from "./ISalonDependencies";
 import { ICreateSalonUseCase,ISalonVerifyOtpUseCase,ICheckSalonEmailUseCase, ILoginSalonUseCase } from "@/domain/salon/useCases";
 import { ISalonResetPasswordUseCase } from '@/domain/salon/useCases/ISalonResetPasswordUseCase';
+import { IGetSalonProfileUseCase } from '@/domain/salon/useCases/IGetSalonProfileUseCase';
 
 export interface ISalonUseCases {
   createSalonUseCase: (dependencies: ISalonDependencies) => ICreateSalonUseCase;
@@ -13,4 +14,5 @@ export interface ISalonUseCases {
   loginSalonUseCase:(dependencies:ISalonDependencies)=> ILoginSalonUseCase
   findSalonByEmailUseCase:(dependencies:ISalonDependencies)=> ISalonFinbyEmailUsecases
   resetSalonPasswordUseCase:(dependencies:ISalonDependencies)=> ISalonResetPasswordUseCase
+  getSalonProfileUseCase :(dependencies:ISalonDependencies)=> IGetSalonProfileUseCase
 }
