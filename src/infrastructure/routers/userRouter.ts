@@ -16,7 +16,7 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/logout").delete(logoutUser);
   router.route("/forgetPassword").post(forgotPassword)
   router.route('/userResetPassword').post(resetPassword)
-  router.route('/getStatus').post(getEveryUsersStatus)
+  router.route('/getStatus/:userId/:role').get(getEveryUsersStatus)
 
 
   

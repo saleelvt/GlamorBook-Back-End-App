@@ -14,7 +14,9 @@ export const checkStatusById = async (id: string, role: string) => {
     if(role==="salon"){
         let statusNow= await Salon.findById(id)
         
+        console.log("my user data  from repositury for status checkign",statusNow);
         return statusNow?.status
+        
     }
   } catch (error) {
     throw new Error((error as Error).message);

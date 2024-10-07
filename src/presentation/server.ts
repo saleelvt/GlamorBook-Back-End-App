@@ -9,7 +9,7 @@ import { dependencies } from "@/boot/dependencies";
 import { adminDependencies } from "@/boot/adminDependencies";
 import { salonDependencies } from "@/boot/salonDependencies";
 dotenv.config();
-
+ 
 const app: Application = express();
 const PROT: number = Number(process.env.PORT) || 4001;
 
