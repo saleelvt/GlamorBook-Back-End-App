@@ -9,6 +9,8 @@ import { logoutController } from "./logoutUser";
 import { forgotPasswordController } from "./forgotPassword";
 import { resetPasswordController } from "./resetPassword";
 import {getEveryUsersStatusController} from"./getEveryUsersStatus"
+import { getEverySalonController } from "./getEverySalon";
+
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -20,6 +22,7 @@ export const controllers = (dependencies: IDependencies) => {
     logoutUser: logoutController(dependencies),
     forgotPassword: forgotPasswordController(dependencies),
     resetPassword: resetPasswordController(dependencies),
-    getEveryUsersStatus:getEveryUsersStatusController(dependencies)
+    getEveryUsersStatus:getEveryUsersStatusController(dependencies),
+    getEverySalon:getEverySalonController(dependencies)
   };
 };

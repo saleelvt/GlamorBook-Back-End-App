@@ -5,7 +5,7 @@ import { controllers } from "@/presentation/user/controllers";
 import { Router } from "express";
 
 export const routes = (dependencies: IDependencies) => {
-  const { signup, verifyOtp, googleAuth, loginUser, reSendOtp, logoutUser,forgotPassword,resetPassword ,getEveryUsersStatus} =controllers(dependencies);
+  const { signup, verifyOtp, googleAuth, loginUser, reSendOtp, logoutUser,forgotPassword,resetPassword ,getEveryUsersStatus,getEverySalon} =controllers(dependencies);
   const router = Router();
 
   router.route("/signup").post(signup);
@@ -17,6 +17,7 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/forgetPassword").post(forgotPassword)
   router.route('/userResetPassword').post(resetPassword)
   router.route('/getStatus/:userId/:role').get(getEveryUsersStatus)
+  router.route("/getAllSalon").get(getEverySalon)
 
 
   
