@@ -1,3 +1,4 @@
+import { SalonAddServiceById } from './../../../infrastructure/database/mongodb/repositories/salon/salonAddServiceById';
 
 import { SalonEntity } from "@/domain/salon/entities";
 
@@ -8,4 +9,5 @@ export interface ISalonRepositories {
    salonFindByEmail:(email:string)=>Promise<SalonEntity|null>
    updateSalonPassword:(data:{email:string,password:string})=>Promise<SalonEntity|null>
    salonProfileById :(id:string) => Promise <SalonEntity|null> 
+   SalonAddServiceById:(_id:string,serviceName:string,price:number,duration:number) => Promise<boolean>
 }
