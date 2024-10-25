@@ -10,4 +10,5 @@ export interface ISalonRepositories {
    updateSalonPassword:(data:{email:string,password:string})=>Promise<SalonEntity|null>
    salonProfileById :(id:string) => Promise <SalonEntity|null> 
    SalonAddServiceById:(_id:string,serviceName:string,price:number,duration:number) => Promise<boolean>
+   getServicesById:(salonId:string) => Promise<any>
 }
