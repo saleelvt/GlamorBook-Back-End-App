@@ -20,6 +20,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^22.5.0",
     "@types/nodemailer": "^6.4.15",
+    "@types/socket.io": "^3.0.2",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
@@ -37,6 +38,7 @@
     "google-auth-library": "^9.13.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.3",
-    "nodemailer": "^6.9.14"
+    "nodemailer": "^6.9.14",
+    "socket.io": "^4.8.1"
   }
 }
