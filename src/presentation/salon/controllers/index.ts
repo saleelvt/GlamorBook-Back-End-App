@@ -12,6 +12,7 @@ import { salonLogoutController } from "./salonLogout";
 import { getSalonProfileController } from "./salonProfile";
 import { addServiceController } from "./addService";
 import { getAllServicesByIdController } from "./getAllServicesById";
+import { getAllUsersController } from "./getAllUsers";
 
 export const salonControllers = (dependencies: ISalonDependencies) => {
   return {
@@ -23,6 +24,7 @@ export const salonControllers = (dependencies: ISalonDependencies) => {
     salonLogout:salonLogoutController(dependencies),
     salonProfile:getSalonProfileController(dependencies),
     addService:addServiceController(dependencies),
-    getAllServicesById:getAllServicesByIdController(dependencies)
+    getAllServicesById:getAllServicesByIdController(dependencies),
+    getAllUsers:getAllUsersController(dependencies)
   };
 };

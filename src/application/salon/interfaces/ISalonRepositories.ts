@@ -1,4 +1,3 @@
-import { SalonAddServiceById } from './../../../infrastructure/database/mongodb/repositories/salon/salonAddServiceById';
 
 import { SalonEntity } from "@/domain/salon/entities";
 
@@ -11,4 +10,5 @@ export interface ISalonRepositories {
    salonProfileById :(id:string) => Promise <SalonEntity|null> 
    SalonAddServiceById:(_id:string,serviceName:string,price:number,duration:number) => Promise<boolean>
    getServicesById:(salonId:string) => Promise<any>
+   getAllUsers:()=> Promise<any>
 }

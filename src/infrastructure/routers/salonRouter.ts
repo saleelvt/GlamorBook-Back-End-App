@@ -7,7 +7,7 @@ import { salonControllers } from "@/presentation/salon/controllers";
 import { Router } from "express";
 
 export const salonRoutes = (dependencies: ISalonDependencies) => {
-  const { salonSignup ,salonVerifyOtp,salonLogin,salonForgotPassword,salonResetPassword,salonLogout,salonProfile,addService,getAllServicesById} = salonControllers(dependencies);
+  const { salonSignup ,salonVerifyOtp,salonLogin,salonForgotPassword,salonResetPassword,salonLogout,salonProfile,addService,getAllServicesById,getAllUsers} = salonControllers(dependencies);
 
   const router = Router();
 
@@ -20,6 +20,7 @@ export const salonRoutes = (dependencies: ISalonDependencies) => {
   router.route("/getSalonProfile/:salonIdForPorpuse").get(salonProfile)
   router.route("/addSalonService").post(addService)
   router.route("/getAllServices/:salonIdForPorpuse").get(getAllServicesById)
+  router.route('/getAllUsers').get(getAllUsers)
 
   return router;
 };

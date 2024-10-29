@@ -8,6 +8,7 @@ import { ISalonResetPasswordUseCase } from '@/domain/salon/useCases/ISalonResetP
 import { IGetSalonProfileUseCase } from '@/domain/salon/useCases/IGetSalonProfileUseCase';
 import { IAddSalonServiceUseCase } from '@/domain/salon/useCases/IAddSalonServiceUseCase';
 import { IGetAllServicesUseCase } from '@/domain/salon/useCases/IGetAllServicesUseCase';
+import { IGetAllUsersUseCase } from '@/domain/salon/useCases/IGetAllUsersUseCase';
 
 export interface ISalonUseCases {
   createSalonUseCase: (dependencies: ISalonDependencies) => ICreateSalonUseCase;
@@ -19,4 +20,5 @@ export interface ISalonUseCases {
   getSalonProfileUseCase :(dependencies:ISalonDependencies)=> IGetSalonProfileUseCase
   addServiceUseCase:(dependencies:ISalonDependencies) => IAddSalonServiceUseCase
   getAllServicesUseCase:(dependencies:ISalonDependencies)=> IGetAllServicesUseCase
+  getAllUserUseCase:(dependencies:ISalonDependencies)=> IGetAllUsersUseCase
 }

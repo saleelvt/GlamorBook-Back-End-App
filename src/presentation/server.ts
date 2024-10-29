@@ -22,7 +22,6 @@ const PROT: number = Number(process.env.PORT) || 4001;
 
 const server= http.createServer(app)
 
-
 const io= new Server(server,{
   cors:{
     origin: process.env.CLIENT_URL, // Allow frontend origin
@@ -50,11 +49,14 @@ app.use("/", routes(dependencies));
 app.use("/salon", salonRoutes(salonDependencies));
 app.use("/admin", adminRoutes(adminDependencies));
 
+const onlineUsers= new Set<string>()
 
 
 io.on("connection",(socket)=>{
 
   console.log("new Client Connected ", socket.id);
+  onlineUsers.add(socket.id)
+  io.emit("update_users",Array.from(onlineUsers))
   
   socket.on("send_message",(messageData)=>{
     console.log("Message received on server:", messageData);
@@ -64,10 +66,15 @@ io.on("connection",(socket)=>{
 
   })
 
+  socket.on("typing",(userId)=>{
+    socket.broadcast.emit("typing",userId)
+  })
 
    // Handle client disconnection
    socket.on("disconnect", () => {
     console.log("Client disconnected:", socket.id);
+    onlineUsers.delete(socket.id)
+    io.emit('update_users',Array.from(onlineUsers))
   });
   
 
