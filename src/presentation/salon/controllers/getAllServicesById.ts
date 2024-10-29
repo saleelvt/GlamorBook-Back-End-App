@@ -4,11 +4,10 @@ import { NextFunction, Request, Response } from "express";
 export const getAllServicesByIdController=(dependencies:ISalonDependencies)=>{
 
     const  {useCases:{getAllServicesUseCase}}=dependencies
-    return async (req: Request, res: Response, next: NextFunction)=>{
-        
 
+    return async (req: Request, res: Response, next: NextFunction)=>{
         try {
-              
+            
             const {salonIdForPorpuse}= req.params
 
             console.log("this is my reqqqqqqqqqqqqqqqq",salonIdForPorpuse);
