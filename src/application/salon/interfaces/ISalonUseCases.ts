@@ -9,6 +9,7 @@ import { IGetSalonProfileUseCase } from '@/domain/salon/useCases/IGetSalonProfil
 import { IAddSalonServiceUseCase } from '@/domain/salon/useCases/IAddSalonServiceUseCase';
 import { IGetAllServicesUseCase } from '@/domain/salon/useCases/IGetAllServicesUseCase';
 import { IGetAllUsersUseCase } from '@/domain/salon/useCases/IGetAllUsersUseCase';
+import { IUpdateServiceUseCase } from '@/domain/salon/useCases/IUpdateServiceUseCase';
 
 export interface ISalonUseCases {
   createSalonUseCase: (dependencies: ISalonDependencies) => ICreateSalonUseCase;
@@ -21,4 +22,6 @@ export interface ISalonUseCases {
   addServiceUseCase:(dependencies:ISalonDependencies) => IAddSalonServiceUseCase
   getAllServicesUseCase:(dependencies:ISalonDependencies)=> IGetAllServicesUseCase
   getAllUserUseCase:(dependencies:ISalonDependencies)=> IGetAllUsersUseCase
+  updateServiceUseCase:(dependencies:ISalonDependencies)=> IUpdateServiceUseCase
+
 }

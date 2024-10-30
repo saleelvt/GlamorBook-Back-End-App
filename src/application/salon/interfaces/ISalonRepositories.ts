@@ -1,5 +1,6 @@
 
 import { SalonEntity } from "@/domain/salon/entities";
+import { IUpdateService } from "@/domain/salon/entities/updateService";
 
 export interface ISalonRepositories {
    salonCreate:(data: SalonEntity)=> Promise<SalonEntity | null>
@@ -11,4 +12,5 @@ export interface ISalonRepositories {
    SalonAddServiceById:(_id:string,serviceName:string,price:number,duration:number) => Promise<boolean>
    getServicesById:(salonId:string) => Promise<any>
    getAllUsers:()=> Promise<any>
+   updateServiceById:(obj:IUpdateService)=>Promise<any>
 }

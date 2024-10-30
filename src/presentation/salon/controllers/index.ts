@@ -14,6 +14,7 @@ import { addServiceController } from "./addService";
 import { getAllServicesByIdController } from "./getAllServicesById";
 import { getAllUsersController } from "./getAllUsers";
 import { deleteServiceController } from "./deleteService";
+import { updateServiceController } from "./updateService";
 
 
 export const salonControllers = (dependencies: ISalonDependencies) => {
@@ -28,6 +29,7 @@ export const salonControllers = (dependencies: ISalonDependencies) => {
     addService:addServiceController(dependencies),
     getAllServicesById:getAllServicesByIdController(dependencies),
     getAllUsers:getAllUsersController(dependencies),
-    deleteService:deleteServiceController(dependencies)
+    deleteService:deleteServiceController(dependencies),
+    updateService:updateServiceController(dependencies)
   };
 };
